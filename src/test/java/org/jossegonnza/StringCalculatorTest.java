@@ -12,4 +12,10 @@ class StringCalculatorTest {
         Assertions.assertThat(stringCalculator.add("1")).isEqualTo(1);
     }
 
+    @Test
+    public void should_return_the_sum_of_numbers_if_they_are_separated_by_a_comma() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        Assertions.assertThat(stringCalculator.add("1,2")).isEqualTo(3);
+    }
 }
