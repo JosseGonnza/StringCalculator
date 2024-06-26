@@ -5,9 +5,11 @@ public class StringCalculator {
 
             String[] numbs = numbers.split(",");
             int suma = 0;
-            for (int i = 0; i < numbs.length; i++) {
-                suma += Integer.parseInt(numbs[i]);
+
+            for (String numb : numbs) {
+            suma += Integer.parseInt(numb);
             }
+
             return suma;
         }
 }
