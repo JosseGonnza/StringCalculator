@@ -18,4 +18,11 @@ class StringCalculatorTest {
 
         Assertions.assertThat(stringCalculator.add("1,2")).isEqualTo(3);
     }
+
+    @Test
+    public void should_return_0_if_the_string_is_empty() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        Assertions.assertThat(stringCalculator.add("")).isEqualTo(0);
+    }
 }
