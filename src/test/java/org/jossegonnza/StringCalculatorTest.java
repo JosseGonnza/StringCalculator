@@ -17,6 +17,7 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         Assertions.assertThat(stringCalculator.add("1,2")).isEqualTo(3);
+        Assertions.assertThat(stringCalculator.add("1,2,3,4,5,6,7,8,9")).isEqualTo(45);
     }
 
     @Test
@@ -25,4 +26,12 @@ class StringCalculatorTest {
 
         Assertions.assertThat(stringCalculator.add("")).isEqualTo(0);
     }
+
+    @Test
+    public void should_return_the_sum_of_numbers_if_they_are_separated_by_a_comma_or_another_lines() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        Assertions.assertThat(stringCalculator.add("1\n2,3")).isEqualTo(6);
+    }
+
 }

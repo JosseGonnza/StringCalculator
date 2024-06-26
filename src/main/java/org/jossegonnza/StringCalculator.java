@@ -6,7 +6,8 @@ public class StringCalculator {
             return 0;
         }
 
-        String[] numbs = numbers.split(",");
+        String regex = "[,\n]";
+        String[] numbs = numbers.split(regex);
             int suma = 0;
 
             for (String numb : numbs) {
