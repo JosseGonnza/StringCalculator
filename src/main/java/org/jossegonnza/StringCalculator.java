@@ -6,9 +6,20 @@ public class StringCalculator {
             return 0;
         }
 
+        String separator = ",";
+        String newNumbers = numbers;
+
+        if (numbers.startsWith("//")) {
+            int newLine = numbers.indexOf("\n");
+            separator = numbers.substring(2,newLine);
+            newNumbers = numbers.substring(newLine + 1);
+        } else if (numbers.contains("\n")) {
+            separator = ("[,\n]");
+        }
+
         int sum = 0;
 
-        String[] numbersArray = numbers.split(",");
+        String[] numbersArray = newNumbers.split(separator);
         for (String number : numbersArray) {
             sum += Integer.parseInt(number);
         }
