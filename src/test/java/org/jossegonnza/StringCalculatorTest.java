@@ -19,4 +19,11 @@ class StringCalculatorTest {
 
         Assertions.assertThat(stringCalculator.add("4")).isEqualTo(4);
     }
+
+    @Test
+    public void should_return_the_sum_if_string_contains_2_numbers_separated_by_comma() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        Assertions.assertThat(stringCalculator.add("1,2")).isEqualTo(3);
+    }
 }
