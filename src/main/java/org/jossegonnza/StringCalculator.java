@@ -14,9 +14,9 @@ public class StringCalculator {
 
 
         if (numbers.startsWith("//")) {
-            int newSeparator = numbers.indexOf("\n");
-            separator = numbers.substring(2, newSeparator);
-            numbs = numbers.substring(newSeparator + 1);
+            int newLine = numbers.indexOf("\n");
+            separator = numbers.substring(2, newLine);
+            numbs = numbers.substring(newLine + 1);
         } else if (numbers.contains("\n")) {
             separator = "[,\n]";
         }
@@ -31,8 +31,9 @@ public class StringCalculator {
 
             if (testNumb < 0) {
                 negativeNumbs.add(testNumb);
+            } else if (testNumb <= 1000) {
+                suma += testNumb;
             }
-            suma += testNumb;
         }
 
         if (!negativeNumbs.isEmpty()) {

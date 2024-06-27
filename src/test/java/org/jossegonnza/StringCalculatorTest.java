@@ -56,4 +56,11 @@ class StringCalculatorTest {
         }
     }
 
+    @Test
+    public void should_ignore_numbers_bigger_than_1000() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        Assertions.assertThat(stringCalculator.add("1001,2")).isEqualTo(2);
+    }
+
 }
