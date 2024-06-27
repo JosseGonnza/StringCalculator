@@ -63,4 +63,11 @@ class StringCalculatorTest {
         Assertions.assertThat(stringCalculator.add("1001,2")).isEqualTo(2);
     }
 
+    @Test
+    public void Separators_can_be_of_any_length_if_surrounded_by_square_brackets() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        Assertions.assertThat(stringCalculator.add("//[***]\n1***2***3")).isEqualTo(6);
+    }
+
 }

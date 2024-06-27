@@ -2,6 +2,7 @@ package org.jossegonnza;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class StringCalculator {
     public int add(String numbers) {
@@ -15,7 +16,7 @@ public class StringCalculator {
 
         if (numbers.startsWith("//")) {
             int newLine = numbers.indexOf("\n");
-            separator = numbers.substring(2, newLine);
+            separator = extractSeparator(numbers.substring(2, newLine));
             numbs = numbers.substring(newLine + 1);
         } else if (numbers.contains("\n")) {
             separator = "[,\n]";
@@ -41,6 +42,12 @@ public class StringCalculator {
         }
 
         return suma;
+    }
 
+    private String extractSeparator(String separatorPart) {
+        if (separatorPart.startsWith("[") && separatorPart.endsWith("]")) {
+            return Pattern.quote(separatorPart.substring(1, separatorPart.length() - 1));
+        }
+        return Pattern.quote(separatorPart);
     }
 }
