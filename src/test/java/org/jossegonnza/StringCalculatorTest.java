@@ -3,6 +3,9 @@ package org.jossegonnza;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 class StringCalculatorTest {
 
     @Test
@@ -39,6 +42,18 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         Assertions.assertThat(stringCalculator.add("//;\n1;2")).isEqualTo(3);
+    }
+
+    @Test
+    public void Should_throw_exception_with_negative_numbers() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        try {
+            stringCalculator.add("1,-2,-3");
+            fail("Expected IllegalArgumentException to be thrown");
+        } catch (IllegalArgumentException e) {
+            assertTrue(e.getMessage().contains("Negatives not allowed: [-2, -3]"));
+        }
     }
 
 }
