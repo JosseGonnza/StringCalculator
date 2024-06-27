@@ -34,4 +34,11 @@ class StringCalculatorTest {
         Assertions.assertThat(stringCalculator.add("1\n2,3")).isEqualTo(6);
     }
 
+    @Test
+    public void Should_optionally_support_custom_separators() {
+        StringCalculator stringCalculator = new StringCalculator();
+
+        Assertions.assertThat(stringCalculator.add("//;\n1;2")).isEqualTo(3);
+    }
+
 }
